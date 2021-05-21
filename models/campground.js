@@ -4,7 +4,12 @@ const Schema = mongoose.Schema; //atajo para no tener que escribir mongoose.Sche
 
 const CampgroundSchema = new Schema({
     title: String,
-    image: String,
+    images: [
+        {
+            url: String,
+            filename: String
+        }
+    ],
     price: Number,
     description: String,
     location: String,
