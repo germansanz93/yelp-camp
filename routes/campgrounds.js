@@ -16,7 +16,7 @@ router.get('/new', isLoggedIn, campgrounds.renderNewForm);
 
 router.route('/:id')
     .get(catchAsync(campgrounds.showCampground))
-    .put(isLoggedIn, isAuthor, validateCampground, catchAsync(campgrounds.updateCampground))
+    .put(isLoggedIn, isAuthor, upload.array('image'), validateCampground, catchAsync(campgrounds.updateCampground))
     .delete(isLoggedIn, catchAsync(campgrounds.deleteCampground))
 //tener en cuenta que la usar la variable captura cualquier cosa que haya ahi,
 //por lo que al tener otras rutas que sean campgrounds/algo debemos ponerlas antes de esta
